@@ -3,26 +3,31 @@
  */
 import java.io.*;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class Baseline {
     int[] quantity = new int[20];
     int[] price = new int[20];
     String[] item = new String[20];
-
+    int itemCounter;
     public static void main(String[] args) {
         Baseline bl = new Baseline();
         bl.readInput();
-        bl.calculateTax();
+        bl.calculateTotal();
     }
 
-    private void calculateTax() {
-
+    private void calculateTotal() {
+        Pattern pattern = Pattern.compile("books");
+        for(int i = 0; i < itemCounter; i++){
+            int itemTotal = quantity[i] * price[i];
+            if ()
+        }
     }
 
     private void readInput() {
         String temp, in;
 
-        int itemCounter=0;
+        itemCounter=0;
         Scanner s = new Scanner(System.in);
         System.out.println("Enter input item or press 0 to exit");
         while(true){
@@ -33,10 +38,10 @@ public class Baseline {
             }
             else{
                 item[itemCounter]=in;
-                quantity[itemCounter]=in.substring(0,1);
+                quantity[itemCounter]=Integer.parseInt(in.substring(0,1));
                 temp = in.substring(1);
                 temp= temp.replaceAll("\\D+", "");
-                price[itemCounter]= temp;
+                price[itemCounter]=Integer.parseInt(temp);
                 System.out.println("Quantity is " +quantity[itemCounter]);
                 System.out.println("Price is "+ price[itemCounter]);
                 System.out.println("Item is "+ item[itemCounter]);
