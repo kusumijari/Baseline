@@ -11,7 +11,7 @@ public class Baseline {
     }
 
     private void readInput() {
-        String in;
+        String temp, in;
         String[] quantity = new String[20];
         String[] price = new String[20];
         int itemCounter=0;
@@ -25,8 +25,12 @@ public class Baseline {
             }
             else{
                 quantity[itemCounter]=in.substring(0,1);
-
-                System.out.println(quantity[itemCounter]);
+                temp = in.substring(1);
+                temp= temp.replaceAll("\\D+", "");
+                price[itemCounter]= temp;
+                System.out.println("Quantity is " +quantity[itemCounter]);
+                System.out.println("Price is "+ price[itemCounter]);
+                itemCounter++;
             }
         }
         //System.out.println("Input String is " + total);
