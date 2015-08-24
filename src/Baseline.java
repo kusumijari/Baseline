@@ -3,6 +3,7 @@
  */
 import java.io.*;
 import java.util.Scanner;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Baseline {
@@ -17,10 +18,13 @@ public class Baseline {
     }
 
     private void calculateTotal() {
-        Pattern pattern = Pattern.compile("books");
+        String p1 = " book[s?] ";
+        Pattern pattern = Pattern.compile(p1);
+
         for(int i = 0; i < itemCounter; i++){
             int itemTotal = quantity[i] * price[i];
-            if ()
+            Matcher m = pattern.matcher(item[itemCounter]);
+            if(m.find())
         }
     }
 
@@ -34,7 +38,7 @@ public class Baseline {
             in=s.nextLine();
             if(in.equals("0")){
                 System.out.println("exiting");
-                break;
+                             break;
             }
             else{
                 item[itemCounter]=in;
