@@ -20,11 +20,13 @@ public class Baseline {
     private void calculateTotal() {
         String p1 = " book[s?] ";
         Pattern pattern = Pattern.compile(p1);
-
+        int  tax=0;
         for(int i = 0; i < itemCounter; i++){
             int itemTotal = quantity[i] * price[i];
             Matcher m = pattern.matcher(item[itemCounter]);
-            if(m.find())
+            if(!(m.find())){
+                tax = 
+            }
         }
     }
 
